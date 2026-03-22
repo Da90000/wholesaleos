@@ -8,9 +8,9 @@ interface SettingsModalProps {
 export function SettingsModal({ onSave, onClose }: SettingsModalProps) {
   const [supabaseUrl, setSupabaseUrl] = useState('');
   const [supabaseAnonKey, setSupabaseAnonKey] = useState('');
-  const [supabaseSchema, setSupabaseSchema] = useState('public');
+  const [supabaseSchema, setSupabaseSchema] = useState('wholesaleos');
   const [aiProvider, setAiProvider] = useState('google');
-  const [aiModel, setAiModel] = useState('gemini-3-flash-preview');
+  const [aiModel, setAiModel] = useState('gemini-2.0-flash');
   const [aiApiKey, setAiApiKey] = useState('');
   const [appName, setAppName] = useState('WholesaleOS');
   const [loading, setLoading] = useState(false);
@@ -18,6 +18,7 @@ export function SettingsModal({ onSave, onClose }: SettingsModalProps) {
 
   const providerModels: Record<string, { id: string; name: string }[]> = {
     google: [
+      { id: 'gemini-2.0-flash', name: 'Gemini 2.0 Flash (Newest)' },
       { id: 'gemini-3-flash-preview', name: 'Gemini 3 Flash (Fastest)' },
       { id: 'gemini-3.1-pro-preview', name: 'Gemini 3.1 Pro (Most Accurate)' },
       { id: 'gemini-flash-latest', name: 'Gemini Flash Latest' },
@@ -42,9 +43,9 @@ export function SettingsModal({ onSave, onClose }: SettingsModalProps) {
       .then(data => {
         setSupabaseUrl(data.supabaseUrl || '');
         setSupabaseAnonKey(data.supabaseAnonKey || '');
-        setSupabaseSchema(data.supabaseSchema || 'public');
+        setSupabaseSchema(data.supabaseSchema || 'wholesaleos');
         setAiProvider(data.aiProvider || 'google');
-        setAiModel(data.aiModel || 'gemini-3-flash-preview');
+        setAiModel(data.aiModel || 'gemini-2.0-flash');
         setAiApiKey(data.aiApiKey || '');
         setAppName(data.appName || 'WholesaleOS');
       });

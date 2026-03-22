@@ -37,9 +37,9 @@ async function startServer() {
     res.json({
       supabaseUrl: settings.supabaseUrl || '',
       supabaseAnonKey: settings.supabaseAnonKey || '',
-      supabaseSchema: settings.supabaseSchema || 'public',
+      supabaseSchema: settings.supabaseSchema || 'wholesaleos',
       aiProvider: settings.aiProvider || 'google',
-      aiModel: settings.aiModel || 'gemini-3-flash-preview',
+      aiModel: settings.aiModel || 'gemini-2.0-flash',
       aiApiKey: settings.aiApiKey || '',
       appName: settings.appName || 'WholesaleOS',
       isConfigured: !!(settings.supabaseUrl && settings.supabaseAnonKey)
@@ -51,9 +51,9 @@ async function startServer() {
     const settings = getSettings();
     settings.supabaseUrl = supabaseUrl;
     settings.supabaseAnonKey = supabaseAnonKey;
-    settings.supabaseSchema = supabaseSchema || 'public';
+    settings.supabaseSchema = supabaseSchema || 'wholesaleos';
     settings.aiProvider = aiProvider || 'google';
-    settings.aiModel = aiModel || 'gemini-3-flash-preview';
+    settings.aiModel = aiModel || 'gemini-2.0-flash';
     settings.aiApiKey = aiApiKey;
     settings.appName = appName || 'WholesaleOS';
     saveSettings(settings);

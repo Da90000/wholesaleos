@@ -1,9 +1,9 @@
 {
-  "supabaseUrl": "https://supabase.n8nfiroz.site",
+  "supabaseUrl": "https://wholesaleos-api.n8nfiroz.site",
   "supabaseAnonKey": "eyJhbGciOiAiSFMyNTYiLCAidHlwIjogIkpXVCJ9.eyJyb2xlIjogImFub24iLCAiaXNzIjogInN1cGFiYXNlIiwgImlhdCI6IDE3NDEwMDAwMDAsICJleHAiOiAxODk4NzY2NDAwfQ.bh3AJffgmuWrZL3nrjhMKVg02gRAykjpy27wERB3Gu0",
   "supabaseSchema": "wholesaleos",
   "aiProvider": "google",
-  "aiModel": "gemini-3-flash-preview",
+  "aiModel": "gemini-2.0-flash",
   "aiApiKey": "AIzaSyCu2zaGh7j2_yeEy6g5BmzAkQNJ1GraunM",
   "appName": "WholesaleOS"
 }
