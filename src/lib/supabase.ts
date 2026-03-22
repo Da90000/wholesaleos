@@ -18,7 +18,7 @@ export async function getSupabase() {
       return supabaseInstance;
     }
   } catch (e) {
-    console.error('Failed to init Supabase', e);
+    console.error('Failed to init Database API', e);
   }
   
   return null;

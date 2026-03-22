@@ -64,7 +64,7 @@ async function startServer() {
   const getSupabase = () => {
     const settings = getSettings();
     if (!settings.supabaseUrl || !settings.supabaseAnonKey) {
-      throw new Error('Supabase not configured');
+      throw new Error('Database not configured');
     }
     return createClient(settings.supabaseUrl, settings.supabaseAnonKey, {
       db: {

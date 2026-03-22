@@ -47,7 +47,7 @@ export function Reports() {
         if (invErr || purErr || itmErr || custErr) {
           console.error('Database error:', invErr || purErr || itmErr || custErr);
           const exactError = invErr?.message || purErr?.message || itmErr?.message || custErr?.message || 'Unknown error';
-          setDbError(`Database Setup Required: ${exactError}. If using a custom schema, ensure it is "Exposed" in Supabase API Settings and permissions are granted.`);
+          setDbError(`Database Setup Required: ${exactError}. If using a custom schema, ensure it is "Exposed" in your API configuration and permissions are granted.`);
         } else {
           setDbError(null);
         }
@@ -149,7 +149,7 @@ export function Reports() {
       if (scannedData.sales?.total > 0) {
         // Find or create "Daily Cash Sales" customer
         let { data: cashCust, error: err1 } = await supabase.from('customers').select('id').eq('name', 'Daily Cash Sales').maybeSingle();
-        if (err1) throw new Error('Database tables might be missing. Please run schema.sql in Supabase. Details: ' + err1.message);
+        if (err1) throw new Error('Database tables might be missing. Please ensure your schema is correctly setup. Details: ' + err1.message);
         
         if (!cashCust) {
           const { data: newCust, error: err2 } = await supabase.from('customers').insert({ name: 'Daily Cash Sales', phone: '-', area: '-' }).select().single();

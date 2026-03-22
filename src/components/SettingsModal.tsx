@@ -58,7 +58,7 @@ export function SettingsModal({ onSave, onClose }: SettingsModalProps) {
     try {
       // Basic validation
       if (!supabaseUrl || !supabaseAnonKey) {
-        throw new Error('Supabase URL and Anon Key are required');
+        throw new Error('Database API URL and Key are required');
       }
 
       const res = await fetch('/api/settings', {
@@ -110,26 +110,26 @@ export function SettingsModal({ onSave, onClose }: SettingsModalProps) {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Supabase URL
+              Database API URL
             </label>
             <input
               type="text"
               value={supabaseUrl}
               onChange={(e) => setSupabaseUrl(e.target.value)}
-              placeholder="https://your-project.supabase.co"
+              placeholder="https://your-api.example.com"
               className="w-full h-9 px-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#0F6E56]"
             />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Supabase Anon Key
+              API Key / JWT Token
             </label>
             <input
               type="password"
               value={supabaseAnonKey}
               onChange={(e) => setSupabaseAnonKey(e.target.value)}
-              placeholder="eyJhbGciOiJIUzI1NiIsIn..."
+              placeholder="Enter your JWT token"
               className="w-full h-9 px-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#0F6E56]"
             />
           </div>
@@ -147,8 +147,8 @@ export function SettingsModal({ onSave, onClose }: SettingsModalProps) {
             />
             <p className="text-xs text-gray-500 mt-1">
               {supabaseSchema !== 'public' 
-                ? `Note: Ensure "${supabaseSchema}" is added to "Exposed schemas" in Supabase API Settings.` 
-                : 'Leave as "public" unless you created a custom schema in Supabase.'}
+                ? `Note: Ensure "${supabaseSchema}" is exposed in your API configuration.` 
+                : 'Leave as "public" unless you created a custom schema.'}
             </p>
           </div>
 
